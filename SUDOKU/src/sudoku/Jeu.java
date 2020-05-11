@@ -17,7 +17,7 @@ import java.util.Scanner;
 public class Jeu {
 	
 	public Region[][] grille;
-	String tableauFich[] = {"C:/Users/asus/Desktop/ENSI/2ème Semestre/POO/Java/SUDOKU/fichier.txt","C:/Users/asus/Desktop/ENSI/2ème Semestre/POO/Java/SUDOKU/fichier2.txt","C:/Users/asus/Desktop/ENSI/2ème Semestre/POO/Java/SUDOKU/fichier3.txt","C:/Users/asus/Desktop/ENSI/2ème Semestre/POO/Java/SUDOKU/fichier4.txt"};
+	String tableauFich[] = {"C:/Users/asus/Desktop/ENSI/2Ã¨me Semestre/POO/Java/SUDOKU/fichier.txt","C:/Users/asus/Desktop/ENSI/2Ã¨me Semestre/POO/Java/SUDOKU/fichier2.txt","C:/Users/asus/Desktop/ENSI/2Ã¨me Semestre/POO/Java/SUDOKU/fichier3.txt","C:/Users/asus/Desktop/ENSI/2Ã¨me Semestre/POO/Java/SUDOKU/fichier4.txt"};
 	Random rand = new Random();
 	int r=rand.nextInt(4);
 	
@@ -32,49 +32,21 @@ public class Jeu {
 	}
 	
 	
-	/*public Jeu(File fichier) throws FileNotFoundException{
-		
-		grille = new Region[3][3];
-		for(int i=0;i<3;i++){
-			for(int j=0;j<3;j++) {
-				grille[i][j] = new Region();
-			}
-		}
-		Scanner scanner = new Scanner(fichier);
-		
-		int courant;
-		int fixe;
-		boolean f;
-		
-		for (int i=0 ; i<9 ; i++) {
-			for (int j=0 ; j<9 ; j++) {
-				courant = scanner.nextInt();
-				this.grille[i][j].setCaseVal(i,j,courant);
-				fixe=scanner.nextInt();
-				if (fixe==0) {
-					f=false;
-				}else {
-					f=true;
-				}
-				this.grille[i][j].setCaseFixe(i,j,f);
-			}
-		}
-		scanner.close();
-	}*/
 	
-	//Accéder à une Région
+	
+	//AccÃ©der Ã  une RÃ©gion
 	public Region getRegion(int i, int j) {
 		return grille[i][j];
 	}
-	//Accéder à la région où se trouve la case de coordonnées i et j
+	//AccÃ©der Ã  la rÃ©gion oÃ¹ se trouve la case de coordonnÃ©es i et j
 	public Region getCaseDansRegion(int i, int j) {
 		return grille[(int)(i/3)][(int)(j/3)];
 	}
-	//Accéder à la valeur de la case de coordonnées i et j
+	//AccÃ©der Ã  la valeur de la case de coordonnÃ©es i et j
 	public int getValCase(int i , int j) {
 		return grille[(int)(i/3)][(int)(j/3)].getCaseVal(i%3,j%3);
 	}
-	//Accéder à l'état d'une case
+	//AccÃ©der Ã  l'Ã©tat d'une case
 	public boolean getEtatCase(int i, int j) {
 		return grille[(int)(i/3)][(int)(j/3)].getCaseFixe(i%3,j%3);
 	}
@@ -92,9 +64,9 @@ public class Jeu {
 	}
 	
 	
-	//Vérifier la ligne num i
+	//VÃ©rifier la ligne num i
 	public boolean verifLigne(int i) {
-		//On vérifie si la ligne ne contient que des chiffres de 1 à 9
+		//On vÃ©rifie si la ligne ne contient que des chiffres de 1 Ã  9
 		boolean chiffre = false;
 		
 		boolean un = false;
@@ -129,7 +101,7 @@ public class Jeu {
 		if(un && deux && trois && quatre && cinq && six && sept && huit && neuf) {
 			chiffre=true;
 		}
-		//On vérifie si la ligne respecte la contrainte
+		//On vÃ©rifie si la ligne respecte la contrainte
 		int valeur;
 		int j=0;
 		if (chiffre) {
@@ -147,9 +119,9 @@ public class Jeu {
 	}else {return false;}
 	}
 	
-	//Vérifier la colonne num j
+	//VÃ©rifier la colonne num j
 		public boolean verifColonne(int j) {
-			//On vérifie si la colonne ne contient que des chiffres de 1 à 9
+			//On vÃ©rifie si la colonne ne contient que des chiffres de 1 Ã  9
 			boolean chiffre = false;
 			
 			boolean un = false;
@@ -184,7 +156,7 @@ public class Jeu {
 			if(un && deux && trois && quatre && cinq && six && sept && huit && neuf) {
 				chiffre=true;
 			}
-			//On vérifie si la colonne respecte la contrainte
+			//On vÃ©rifie si la colonne respecte la contrainte
 			int valeur;
 			int i=0;
 			if (chiffre) {
@@ -202,7 +174,7 @@ public class Jeu {
 		}else {return false;}
 		}
 	
-	//On vérifie si le joueur a gagné
+	//On vÃ©rifie si le joueur a gagnÃ©
 		public boolean gagne(){
 			for (int i=0;i<3;i++) {
 				for (int j=0;j<3;j++) {
@@ -219,7 +191,7 @@ public class Jeu {
 					
 				
 		
-	//Remplir la grille selon le niveau et à partir d'un fichier
+	//Remplir la grille selon le niveau et Ã  partir d'un fichier
 	public void remplirAlea(int niveau ) throws NumberFormatException, IOException {
 		
 		int table[] = new int[81];
@@ -235,7 +207,7 @@ public class Jeu {
 		int tabfinal4[] = new int[81];
 		
 		
-		//Lire les éléments d'une grille à partir d'un fichier et les insérer dans un tableau
+		//Lire les Ã©lÃ©ments d'une grille Ã  partir d'un fichier et les insÃ©rer dans un tableau
 		BufferedReader Lecteur = null;
 		try {
 			
@@ -258,12 +230,12 @@ public class Jeu {
          try {
                  Lecteur.close();
                  } catch( IOException exc) {
-	           System.out.println("Fichier mal fermé");
+	           System.out.println("Fichier mal fermÃ©");
                          exc.printStackTrace(); 
                  }
             }
       }
-		//A partir du tableau table on va générer d'autres tableaux où certaines cases seront masquées
+		//A partir du tableau table on va gÃ©nÃ©rer d'autres tableaux oÃ¹ certaines cases seront masquÃ©es
 		for(int i=0;i<81;i++) {
 			tabfinal1[i]=tab1[i]*table[i];
 		    tabfinal2[i]=tab2[i]*table[i];
@@ -271,7 +243,7 @@ public class Jeu {
 		    tabfinal4[i]=tab4[i]*table[i];
 		}
 		
-				//On va générer des grilles selon le niveau de difficultés
+				//On va gÃ©nÃ©rer des grilles selon le niveau de difficultÃ©s
 				switch(niveau) {
 				case 1:
 					for (int indX=0; indX<9;indX++) {
@@ -380,7 +352,7 @@ public class Jeu {
 	}
 	
 	
-	//Enregistrer une partie dans un fichier nommé "enregistrement"
+	//Enregistrer une partie dans un fichier nommÃ© "enregistrement"
 	public void enregistrer() throws IOException {
 		 File file = new File("enregistrement.txt");
 			PrintWriter writer = new PrintWriter(file, "UTF-8");
@@ -392,13 +364,13 @@ public class Jeu {
 			writer.close();
 	}
 
-	//Générer une grille à partir d'une partie enregistrée
+	//GÃ©nÃ©rer une grille Ã  partir d'une partie enregistrÃ©e
 	public void anciennePartie() throws NumberFormatException, IOException {
 		int table[] = new int[81];
 		BufferedReader Lecteur = null;
 		try {
 			
-			Lecteur = new BufferedReader(new FileReader("C:/Users/asus/Desktop/ENSI/2ème Semestre/POO/Java/SUDOKU/enregistrement.txt"));
+			Lecteur = new BufferedReader(new FileReader("C:/Users/asus/Desktop/ENSI/2Ã¨me Semestre/POO/Java/SUDOKU/enregistrement.txt"));
  
            String ligne; 
 	       int index = 0; 
@@ -416,7 +388,7 @@ public class Jeu {
          try {
                  Lecteur.close();
                  } catch( IOException exc) {
-	           System.out.println("Fichier mal fermé");
+	           System.out.println("Fichier mal fermÃ©");
                          exc.printStackTrace(); 
                  }
             }
@@ -431,7 +403,7 @@ public class Jeu {
 		this.Affichage();
 	}
 
-	//Résoudre le jeu
+	//RÃ©soudre le jeu
 	public void solution() throws NumberFormatException, IOException {
 		int table[] = new int[81];
 		BufferedReader Lecteur = null;
@@ -455,7 +427,7 @@ public class Jeu {
          try {
                  Lecteur.close();
                  } catch( IOException exc) {
-	           System.out.println("Fichier mal fermé");
+	           System.out.println("Fichier mal fermÃ©");
                          exc.printStackTrace(); 
                  }
             }
